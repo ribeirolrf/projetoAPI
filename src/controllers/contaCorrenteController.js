@@ -5,8 +5,9 @@ function cadastrarView(req, res){
 }
 
 function cadastrarContaCorrente(req,res){
+    console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",req.session.user_id)
     let contaCorrente = {
-        usuario_id: req.body.id,
+        usuario_id: req.session.user_id,
         nome: req.body.nome,
         numero: req.body.numero,
         dataAbertura: req.body.dataAbertura,

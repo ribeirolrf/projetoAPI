@@ -7,9 +7,10 @@ function loginView(req, res){
 }
 
 async function autenticar(req, res) {
-    console.log(">>>>>>>>>>>>>>>>>>>>>",req.body)
-    const usuario = await Usuario.findOne({ where: { email: req.body.email, password: req.body.password} });
+    let usuario = await Usuario.findOne({ where: { email: req.body.email, password: req.body.password} });
     if (usuario !== null) {    
+        req.session.user_id = usuario.id
+        console.log(">>>>>>>>>>>>>>>>>>>>>",usuario)
         req.session.autorizado = true
         req.session.usuario = usuario
         res.redirect('/')
