@@ -14,23 +14,23 @@
     <div class="container mt-5">
         <h1>Cadastro de conta</h1>
 
-        <form action="/contas/cadastrar">
+        <form method="post" action="/contas/cadastrar">
             <h2>Dados da Conta</h2>
                 <div class="col-3">
-                    <label class="form-label" for="numero">Numero</label>
+                    <label class="form-label" for="numero">Número da Conta</label>
                     <input class="form-control" type="number" id="numero" name="numero">
                 </div>
                 <div class="col-3">
-                    <label class="form-label" for="dataNasc">Nome</label>
-                    <input class="form-control" type="date" id="dataNasc" name="dataNasc">
+                    <label class="form-label" for="dataAbertura">Data de Abertura</label>
+                    <input class="form-control" type="date" id="dataAbertura" name="dataAbertura">
                 </div>
                 <div class="col-3">
-                    <label class="form-label" for="telefone">Telefone</label>
-                    <input class="form-control" type="number" id="telefone" name="telefone">
+                    <label class="form-label" for="nome">Nome da Conta</label>
+                    <input class="form-control" type="text" id="nome" name="nome">
                 </div>
                 <div class="col-3">
-                    <label class="form-label" for="endereco">Endereço</label>
-                    <input class="form-control" type="text" id="endereco" name="endereco">
+                    <label class="form-label" for="saldo">Saldo</label>
+                    <input class="form-control" type="number" id="saldo" name="saldo">
                 </div>
 
             <div class="d-grid mt-3">

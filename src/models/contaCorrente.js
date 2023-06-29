@@ -8,24 +8,29 @@ const ContaCorrente = database.define('contaCorrente', {
         allowNull: false,
         primaryKey: true,
     },
+    usuario_id: {
+        type: Sequelize.INTEGER,
+        allowNull: false,
+        references: {
+          model: 'usuarios', // Nome da tabela principal
+          key: 'id' // Chave primária da tabela principal
+        }
+    },
     numero: {
         type: Sequelize.INTEGER,
-        autoIncrement: true,
         allowNull: false,
+        unique: true,
     },
     nome: {
         type: Sequelize.STRING,
-        autoIncrement: true,
         allowNull: false,
     },
     dataAbertura: {
         type: Sequelize.DATE,
-        autoIncrement: true,
         allowNull: false,
     },
     saldo: {
         type: Sequelize.DOUBLE,
-        autoIncrement: true,
         allowNull: false,
     },
 })

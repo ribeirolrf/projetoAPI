@@ -6,7 +6,7 @@ function cadastrarView(req, res){
 
 function cadastrarContaCorrente(req,res){
     let contaCorrente = {
-        usuario_id:req.body.id,
+        usuario_id: req.body.id,
         nome: req.body.nome,
         numero: req.body.numero,
         dataAbertura: req.body.dataAbertura,

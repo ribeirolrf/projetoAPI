@@ -22,6 +22,7 @@ app.use(session({
 app.use('/', require('./src/routes/pessoaRoutes'));
 app.use('/', require('./src/routes/indexRoutes'));
 app.use('/', require('./src/routes/autenticacaoRoutes'));
+app.use('/', require('./src/routes/contaCorrenteRoutes'));
 
 app.use('/', require('./src/routes/usuarioRoutes'));
 
