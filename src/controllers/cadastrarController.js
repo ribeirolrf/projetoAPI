@@ -1,10 +1,11 @@
 const PessoaController = require('./pessoaController')
 const usuarioController = require('./usuarioController')
 
-function criarPessoaUsuario(req,res){
+async function criarPessoaUsuario(req,res){
     console.log(req)
-    PessoaController.cadastrarPessoa(req,res)
+    const data = await PessoaController.cadastrarPessoa(req,res)
     if(req.body.email.trim()!==''){
+        req.body.id = data
         usuarioController.cadastrarUsuario(req,res)
     }
 }

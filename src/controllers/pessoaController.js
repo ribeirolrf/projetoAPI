@@ -4,24 +4,33 @@ function cadastrarView(req, res){
     res.render("pessoa/cadastrar.html", {});
 }
 
-function cadastrarPessoa(req, res){
-    let pessoa = {
+function cadastrarPessoa(req, res) {
+    return new Promise((resolve, reject) => {
+      let pessoa = {
         nome: req.body.nome,
         cpf: req.body.cpf,
         dataNasc: req.body.dataNasc,
         telefone: req.body.telefone,
         endereco: req.body.endereco,
         cep: req.body.cep,
-    }
-
-    Pessoa.create(pessoa).then((result)=>{
-        res.render("pessoa/cadastrar.html", {pessoa});
-    }).catch((err) => {
-        console.log(err)
-        let erro = err
-        res.render("pessoa/cadastrar.html", {erro});
-    })
-}
+      }
+  
+      let pessoaId = 0;
+  
+      Pessoa.create(pessoa)
+        .then((result) => {
+          pessoaId = result.id;
+          res.render("pessoa/cadastrar.html", { pessoa });
+          resolve(pessoaId); // Resolve a promessa com o valor de pessoaId
+        })
+        .catch((err) => {
+          console.log(err)
+          let erro = err
+          res.render("pessoa/cadastrar.html", { erro });
+          reject(err); // Rejeita a promessa com o erro
+        });
+    });
+  }
 
 function listarView(req, res){
 

@@ -15,16 +15,13 @@ const Usuario = database.define('usuario', {
     },
     email:{
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     },
     password:{
         type: Sequelize.STRING,
         allowNull: false
     },
 })
-
-Usuario.belongsTo(Pessoa, {
-     foreignKey: 'pessoa.id',
-});
  
 module.exports = Usuario;

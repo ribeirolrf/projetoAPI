@@ -6,7 +6,7 @@ function cadastrarView(req, res){
 
 function cadastrarUsuario(req, res){
     let usuario = {
-        pessoa_id: req.body.pessoa_id,
+        pessoa_id: req.body.id,
         email: req.body.email,
         password: req.body.password,
     }

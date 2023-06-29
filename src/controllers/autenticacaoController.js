@@ -1,15 +1,17 @@
 const Pessoa = require('../models/pessoa')
+const Usuario = require('../models/usuario')
 
 function loginView(req, res){
-    pessoa = req.session.pessoa
-    res.render("login.html", {pessoa});
+    usuario = req.session.usuario
+    res.render("login.html", {usuario});
 }
 
 async function autenticar(req, res) {
-    const pessoa = await Pessoa.findOne({ where: { nome: req.body.nome, cpf: req.body.cpf} });
-    if (pessoa !== null) {    
+    console.log(">>>>>>>>>>>>>>>>>>>>>",req.body)
+    const usuario = await Usuario.findOne({ where: { email: req.body.email, password: req.body.password} });
+    if (usuario !== null) {    
         req.session.autorizado = true
-        req.session.pessoa = pessoa
+        req.session.usuario = usuario
         res.redirect('/')
     } else {
         let erro_autenticacao = true

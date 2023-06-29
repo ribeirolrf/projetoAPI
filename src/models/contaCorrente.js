@@ -1,39 +1,33 @@
 const Sequelize = require('sequelize');
 const database = require('../db');
 
-
-const Pessoa = database.define('pessoa', {
+const ContaCorrente = database.define('contaCorrente', {
     id: {
         type: Sequelize.INTEGER,
         autoIncrement: true,
         allowNull: false,
         primaryKey: true,
     },
+    numero: {
+        type: Sequelize.INTEGER,
+        autoIncrement: true,
+        allowNull: false,
+    },
     nome: {
         type: Sequelize.STRING,
+        autoIncrement: true,
         allowNull: false,
     },
-    cpf: {
-        type: Sequelize.STRING,
-        allowNull: false,
-        unique: true,
-    },
-    dataNasc: {
+    dataAbertura: {
         type: Sequelize.DATE,
+        autoIncrement: true,
         allowNull: false,
     },
-    telefone: {
-        type: Sequelize.BIGINT,
-        allowNull: false,
-    },
-    endereco: {
-        type: Sequelize.STRING,
-        allowNull: false,
-    },
-    cep: {
-        type: Sequelize.BIGINT,
+    saldo: {
+        type: Sequelize.DOUBLE,
+        autoIncrement: true,
         allowNull: false,
     },
 })
  
-module.exports = Pessoa;
+module.exports = ContaCorrente;
