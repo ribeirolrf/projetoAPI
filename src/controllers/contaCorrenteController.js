@@ -23,7 +23,18 @@ function cadastrarContaCorrente(req,res){
     })
 }
 
+function listarView(req, res){
+    ContaCorrente.findAll().then((contas)=>{
+        res.render("contas/listar", {contas});
+    }).catch((err) => {
+        console.log(err)
+        let erro = err
+        res.render("contas/listar", {erro});
+    })
+}
+
 module.exports =  {
     cadastrarContaCorrente,
     cadastrarView,
+    listarView,
 };
