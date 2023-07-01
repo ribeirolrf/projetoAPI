@@ -13,7 +13,7 @@ async function autenticar(req, res) {
         console.log(">>>>>>>>>>>>>>>>>>>>>",usuario)
         req.session.autorizado = true
         req.session.usuario = usuario
-        res.redirect('/')
+        res.redirect('/contas/listar')
     } else {
         let erro_autenticacao = true
         res.render('login.html', {erro_autenticacao})

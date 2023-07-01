@@ -23,7 +23,32 @@ function cadastrarContaCorrente(req,res){
     })
 }
 
+function listarView(req, res){
+    ContaCorrente.findAll().then((contas)=>{
+        console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",contas)
+        res.render("contas/listar", {contas});    
+    }).catch((err) => {
+        console.log(err)
+        let erro = err
+        res.render("contas/listar", {erro});
+    })
+}
+
+function excluirContaCorrente(req, res) {
+   
+    ContaCorrente.destroy(
+      {
+        where: {
+          id: req.body.id,
+        },
+      }
+    )
+    res.redirect('/contas/listar')
+}
+
 module.exports =  {
     cadastrarContaCorrente,
     cadastrarView,
+    listarView,
+    excluirContaCorrente,
 };

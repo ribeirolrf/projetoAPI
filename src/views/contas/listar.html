@@ -20,16 +20,36 @@
                         <tr>
                             <th>ID</th>
                             <th>Número da conta</th>
+                            <th>Excluir</th>
                         </tr>
                     </thead>
 
                     <tbody>
+                        {{#contas}}
                         <tr>
                             <td>{{id}}</td>
-                            <td><a href="/pessoa/editar/{{id}}">{{numero}}</a></td>
+                            <td><a href="" data-bs-toggle="modal" data-bs-target="#modalConta{{id}}">{{numero}}</a></td>
+
+                            <!-- Modal Saldo -->
+                            <div class="modal" id="modalConta{{id}}">
+                                <div class="modal-dialog">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLongTitle">Dados da Conta: {{numero}}</h5>
+                                    </div>
+                                    <div class="modal-body">
+                                        <h2>Saldo: {{saldo}}</h2>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-primary">Consultar Histórico de Transferência</button>
+                                        <button type="button" class="btn btn-primary">Realizar Tranferência</button>
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+
                             <td>
-                                <button type="button" class="btn btn-danger" data-bs-toggle="modal"
-                                    data-bs-target="#myModal-{{id}}">
+                                <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#myModal-{{id}}">
                                     Excluir
                                 </button>
                                 <div class="modal" id="myModal-{{id}}">
@@ -52,21 +72,20 @@
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-primary"
                                                     data-bs-dismiss="modal">Cancelar</button>
-                                                    <form action="/pessoa/excluir" method="post">
+                                                    <form action="/contas/excluir" method="post">
                                                         <input type="hidden" value="{{id}}" id="id" name="id">
                                                         <button type="submit" class="btn btn-danger">Confirmar</button>
                                                     </form>
-                                                    
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
                             </td>
                         </tr>
+                        {{/contas}}
                     </tbody>
                     <div class="col-12">
-                        <a href="contas/cadastrar"><button class="btn btn-primary w-100 mt-3">Criar conta</button></a>
+                        <a href="./cadastrar"><button class="btn btn-primary w-100 mt-3">Criar conta</button></a>
                     </div>
                 </table>
             </div>
