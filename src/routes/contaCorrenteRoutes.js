@@ -9,6 +9,9 @@ router.post('/contas/cadastrar', contaCorrenteController.cadastrarContaCorrente)
 
 router.get('/contas/listar', autenticacaoController.verificarAutenticacao, contaCorrenteController.listarView);
 
+<<<<<<< HEAD
 router.post('/contas/excluir', autenticacaoController.verificarAutenticacao, contaCorrenteController.excluirContaCorrente);
 
+=======
+>>>>>>> cd3215e6395196fddf42056dc43cb350af52f656
 module.exports = router;

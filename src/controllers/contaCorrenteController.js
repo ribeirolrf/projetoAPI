@@ -25,8 +25,12 @@ function cadastrarContaCorrente(req,res){
 
 function listarView(req, res){
     ContaCorrente.findAll().then((contas)=>{
+<<<<<<< HEAD
         console.log(">>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>",contas)
         res.render("contas/listar", {contas});    
+=======
+        res.render("contas/listar", {contas});
+>>>>>>> cd3215e6395196fddf42056dc43cb350af52f656
     }).catch((err) => {
         console.log(err)
         let erro = err
@@ -34,6 +38,7 @@ function listarView(req, res){
     })
 }
 
+<<<<<<< HEAD
 function excluirContaCorrente(req, res) {
    
     ContaCorrente.destroy(
@@ -46,9 +51,14 @@ function excluirContaCorrente(req, res) {
     res.redirect('/contas/listar')
 }
 
+=======
+>>>>>>> cd3215e6395196fddf42056dc43cb350af52f656
 module.exports =  {
     cadastrarContaCorrente,
     cadastrarView,
     listarView,
+<<<<<<< HEAD
     excluirContaCorrente,
+=======
+>>>>>>> cd3215e6395196fddf42056dc43cb350af52f656
 };
